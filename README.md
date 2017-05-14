@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/pawandubey/cuckoo_filter.svg?token=3cAzkSrcDxPpHpxsqQyX&branch=master)](https://travis-ci.com/pawandubey/cuckoo_filter)
+
 # CuckooFilter
 
 Pure Ruby implementation of the [Cuckoo Filter](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf) - a probabilistic datastructure which is objectively better than Bloom Filters for set-membership queries.
