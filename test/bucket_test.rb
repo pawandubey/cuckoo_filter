@@ -10,10 +10,6 @@ module CuckooFilter
       end
     end
 
-    def teardown
-      @bucket.clear!
-    end
-
     def test_empty_bucket
       assert @bucket.empty?
     end
