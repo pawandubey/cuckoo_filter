@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.com/pawandubey/cuckoo_filter.svg?token=3cAzkSrcDxPpHpxsqQyX&branch=master)](https://travis-ci.com/pawandubey/cuckoo_filter)
+[![Build Status](https://travis-ci.com/pawandubey/cuckoo_filter.svg?token=3cAzkSrcDxPpHpxsqQyX&branch=master)](https://travis-ci.com/pawandubey/cuckoo_filter) [![codecov](https://codecov.io/gh/pawandubey/cuckoo_filter/branch/master/graph/badge.svg)](https://codecov.io/gh/pawandubey/cuckoo_filter)
+
 
 # CuckooFilter
 
