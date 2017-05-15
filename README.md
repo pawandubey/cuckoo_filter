@@ -4,6 +4,14 @@
 
 Pure Ruby implementation of the [Cuckoo Filter](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf) - a probabilistic datastructure which is objectively better than Bloom Filters for set-membership queries.
 
+## What the heck is a Cuckoo Filter?
+
+It is a probabilistic data structure which is used to determine set-membership, i.e. finding out if a given element exists in a given set.
+
+For practical uses think - checking if an item is present in a cache, if it is present in a database or YouTube trying to figure out if you have already watched some video before it is recommended to you.
+
+It is closely related to Bloom Filters - but outshines them in performance and space efficiency. You can read more from the [original paper](https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf) that introduced it in 2014. Yes, it is that young!
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,13 +30,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Create a filter with 1024 (next power of 2) slots with each bucket holding 4
+cf = CuckooFilter.make(size: 1000, kicks: 500, bucket_size: 4)
+# => returns a CuckooFilter::CuckooFilter instance
+
+# Insert an element into the filter
+cf.insert("foo")
+# => true
+
+# Lookup the existence of an element
+cf.lookup("foo")
+# => true
+
+cf.lookup("bar")
+# => false
+
+# Delete an existing element
+cf.delete("foo")
+# => true
+```
+
+## Frequenty Anticipated Questions
+
+- Q: *Is this useful?*
+  A: Yes, but mainly for academic purposes.
+  
+- Q: *Why not for practical purposes?*
+  A: Because Ruby is not a performance-oriented language. It is made to be expressive, so it lacks a lot of low-level constructs needed to make this implementation fast and efficient enough.
+  
+- Q: *Then why did you make this?*
+  A: For fun and education, of course!
+  
+- Q: *But why Ruby? Why not Go/Rust/Elixir/FooBar*
+  A: Because why not? I like Ruby and I couldn't find a full blown implementation in it.
+  
+- Q: *Can I use it in a real project?*
+  A: If it satisfies your criteria, then why not? Let me know if you do!
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
