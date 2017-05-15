@@ -7,7 +7,7 @@ module CuckooFilter
     end
 
     def setup
-      @cf = CuckooFilter.new(size: 2000, bucket_size: 8)
+      @cf = ::CuckooFilter.make(size: 2000, bucket_size: 8)
     end
 
     def test_bucket_and_overall_size
