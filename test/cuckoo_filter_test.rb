@@ -62,7 +62,7 @@ module CuckooFilter
       assert_equal cf.size, cf.filled
 
       refute cf.insert("new val")
-      assert cf.delete("foo")
+      cf.delete("foo")
       assert_equal cf.size - 1, cf.filled
 
       assert cf.insert("new val")
