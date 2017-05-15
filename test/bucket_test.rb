@@ -24,6 +24,19 @@ module CuckooFilter
       assert_equal object_ids.size, @bucket.size
     end
 
+    def test_random_swap
+      @bucket.insert(@fps.first)
+      @bucket.insert(@fps.last)
+
+      fp = @fps[1]
+      refute @bucket.contains?(fp)
+
+      fp = @bucket.random_swap(fp)
+
+      assert @bucket.contains?(@fps[1])
+      refute_equal fp, @fps[1]
+    end
+
     def test_containment
       assert @bucket.empty?
       refute @bucket.contains?(@fps.first)
@@ -33,7 +46,12 @@ module CuckooFilter
       assert @bucket.contains?(@fps.first)
       assert @bucket.contains?(@fps.last)
 
-      @bucket.remove(@fps.first)
+      rem = @bucket.remove(@fps.first)
+      refute_nil rem
+
+      rem = @bucket.remove(@fps[1])
+      assert_nil rem
+
       refute @bucket.contains?(@fps.first)
       assert @bucket.contains?(@fps.last)
 

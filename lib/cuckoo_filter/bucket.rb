@@ -28,6 +28,12 @@ module CuckooFilter
       end
     end
 
+    def random_swap(fingerprint)
+      random_index = rand(@size)
+      fingerprint, @slots[random_index] = @slots[random_index], fingerprint
+      fingerprint
+    end
+
     def contains?(fingerprint)
       @slots.any? { |slot| slot.value == fingerprint.value }
     end
