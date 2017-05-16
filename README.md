@@ -68,6 +68,29 @@ cf.delete("foo")
   
 - Q: *Can I use it in a real project?*
   A: If it satisfies your criteria, then why not? Let me know if you do!
+  
+## Benchmarks
+
+You can run the benchmark script to see both the duration it takes for a million random lookups as well as to see the iterations per second performance.
+
+```
+$ ruby test/benchmark.rb
+
+Setting up for benchmarking...
+Done.
+
+1 Million Random Lookups
+            user     system      total        real
+       26.700000   0.030000  26.730000 ( 26.792196)
+
+Warming up --------------------------------------
+Iterations per second
+                         3.828k i/100ms
+Calculating -------------------------------------
+Iterations per second
+                        160.203M (±15.2%) i/s -    747.019M in   4.865628s
+
+```
 
 ## Development
 
