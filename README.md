@@ -68,25 +68,23 @@ cf.delete("foo")
   
 ## Benchmarks
 
-You can run the benchmark script to see both the duration it takes for a million random lookups as well as to see the iterations per second performance.
+You can run the benchmark script to see the iterations per second performance of different methods on an initially half full filter.
 
 ```
 $ ruby test/benchmark.rb
 
 Setting up for benchmarking...
 Done.
-
-1 Million Random Lookups
-            user     system      total        real
-       26.700000   0.030000  26.730000 ( 26.792196)
-
 Warming up --------------------------------------
-Iterations per second
-                         3.828k i/100ms
-Calculating -------------------------------------
-Iterations per second
-                        160.203M (±15.2%) i/s -    747.019M in   4.865628s
+# warmup stats -> can be ignored
 
+Calculating -------------------------------------
+Iterations per second - Insertions
+                        214.863M (±47.1%) i/s -      1.214B in   9.859735s
+Iterations per second - Lookups
+                        355.392M (±10.9%) i/s -      3.371B in   9.697599s
+Iterations per second - Deletions
+                        343.890M (± 9.6%) i/s -      3.286B
 ```
 
 ## Development
