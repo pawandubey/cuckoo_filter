@@ -19,6 +19,8 @@ module CuckooFilter
     #
     # @return [Boolean] whether the insertion was successful
     def insert(fingerprint)
+      return false unless has_space?
+
       @slots.each do |slot|
         if slot.empty?
           slot.set(fingerprint)

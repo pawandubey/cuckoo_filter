@@ -49,6 +49,8 @@ module CuckooFilter
     #
     # @return [Boolean] true if successful insertion, else false
     def insert(item)
+      return false unless has_space?
+
       fingerprint = fingerprint(item)
       first_index = hash(item)
       second_index = alt_index(first_index, fingerprint)
@@ -99,12 +101,12 @@ module CuckooFilter
       first_index = hash(item)
       second_index = alt_index(first_index, fingerprint)
 
-      if @buckets[first_index].remove(fingerprint) ||  @buckets[second_index].remove(fingerprint)
+      if @buckets[first_index].remove(fingerprint) || @buckets[second_index].remove(fingerprint)
         decrement_filled_count
         return true
       end
 
-      return false
+      false
     end
 
     private
@@ -141,6 +143,10 @@ module CuckooFilter
 
     def size_mask
       ((1 << Math.log2(@num_buckets).to_i) - 1)
+    end
+
+    def has_space?
+      @filled < @size
     end
   end
 end
