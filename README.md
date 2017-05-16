@@ -54,20 +54,17 @@ cf.delete("foo")
 
 ## Frequenty Anticipated Questions
 
-- Q: *Is this useful?*
-  A: Yes, but mainly for academic purposes.
+- Q: *Is this useful?* </br>
+  A: Yes, but have a look at the benchmarks below to see if it satisfies your performance requirements before using it in a real world app.
   
-- Q: *Why not for practical purposes?*
-  A: Because Ruby is not a performance-oriented language. It is made to be expressive, so it lacks a lot of low-level constructs needed to make this implementation fast and efficient enough.
+- Q: *Why did you make this?*</br>
+  A: For fun and education, of course! Although that is not stopping it from having any real world usage!
   
-- Q: *Then why did you make this?*
-  A: For fun and education, of course!
-  
-- Q: *But why Ruby? Why not Go/Rust/Elixir/FooBar*
+- Q: *But why Ruby? Why not Go/Rust/Elixir/FooBar*</br>
   A: Because why not? I like Ruby and I couldn't find a full blown implementation in it.
   
-- Q: *Can I use it in a real project?*
-  A: If it satisfies your criteria, then why not? Let me know if you do!
+- Q: *Can I use it in a real project?*</br>
+  A: If it satisfies your criteria, then why not? Have a look at the benchmarks for performance stats. Let me know if you do!
   
 ## Benchmarks
 
