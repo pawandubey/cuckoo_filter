@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "codecov"
   spec.add_development_dependency "benchmark-ips"
+
+  spec.add_runtime_dependency "fnv-hash"
 end
